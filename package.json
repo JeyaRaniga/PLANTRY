@@ -1,0 +1,44 @@
+{
+  "name": "plantry",
+  "version": "1.0.0",
+  "description": "## Manage your pantry, fridge and freezer!",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "dev": "nodemon server & webpack --watch",
+    "start": "webpack && node server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JeyaRaniga/PLANTRY.git"
+  },
+  "keywords": [],
+  "author": "Jeya Raniga",
+  "license": "MIT",
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  },
+  "dependencies": {
+    "express": "^4.17.1",
+    "knex": "^0.20.1",
+    "lodash": "^4.17.15",
+    "sqlite3": "^4.1.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.7.2",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/preset-react": "^7.7.0",
+    "babel-loader": "^8.0.6",
+    "jest": "^24.9.0",
+    "nodemon": "^1.19.4",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-router-dom": "^5.1.2",
+    "superagent": "^5.1.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
+  }
+}
