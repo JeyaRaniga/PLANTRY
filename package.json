@@ -2,7 +2,7 @@
   "name": "plantry",
   "version": "1.0.0",
   "description": "## Manage your pantry, fridge and freezer!",
-  "main": "index.js",
+  "main": "Server/index.js",
   "scripts": {
     "test": "jest",
     "dev": "nodemon server & webpack --watch",
@@ -22,6 +22,7 @@
     ]
   },
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.17.1",
     "knex": "^0.20.1",
     "lodash": "^4.17.15",
