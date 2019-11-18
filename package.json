@@ -6,7 +6,7 @@
     "scripts": {
         "test": "jest",
         "dev": " nodemon server & webpack --watch",
-        "start": "webpack && node server"
+        "start": "webpack && nodemon server"
     },
     "repository": {
         "type": "git",
