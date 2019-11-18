@@ -4,7 +4,7 @@ import { Button, Form, Container, Header } from 'semantic-ui-react'
 const Login = () => {
   return (
     <Container>
-      <Header as='h1'>Welcome to <span>PLANTRY</span></Header>
+      <Header as='h1'>Login to your account</Header>
       <Form>
         <Form.Field>
           <label>Username</label>
