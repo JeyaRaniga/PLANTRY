@@ -8,5 +8,6 @@ module.exports = {
 
 function getShoppingList (db = connection) {
   return db('shoppingList')
-    .select()
+    .join('categories', 'shoppingList.categoryId', '=', 'categories.id')
+    .select('shoppingList.id', 'shoppingList.itemName', 'shoppingList.numberOfItems', 'categories.categoryName')
 }
