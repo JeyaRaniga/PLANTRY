@@ -7,6 +7,6 @@ module.exports = {
 }
 
 function getShoppingList (db = connection) {
-  db('ShoppingList')
+  return db('shoppingList')
     .select()
 }

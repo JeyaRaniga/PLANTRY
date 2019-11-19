@@ -9,6 +9,6 @@ server.use(express.static(path.join(__dirname, '../Public')))
 server.use(express.json())
 server.use(cors())
 
-server.use('api/v1/', router)
+server.use('/api/v1/', router)
 
 module.exports = server

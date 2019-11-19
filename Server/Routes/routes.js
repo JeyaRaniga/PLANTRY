@@ -5,8 +5,10 @@ const db = require('../DB/db')
 
 router.get('/shoppingList', (req, res) => {
   db.getShoppingList()
-    .then(list => res.json(list))
-    .catch(err => console.error(err))
+    .then(list => {
+      console.log(list)
+      res.json(list)
+    })
 })
 
 module.exports = router
