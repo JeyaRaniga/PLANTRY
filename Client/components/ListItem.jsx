@@ -2,42 +2,50 @@ import React from 'react'
 import { Input, Label, Icon, Button, Table } from 'semantic-ui-react'
 
 class ListItem extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       name: this.props.name,
       quantity: this.props.quantity,
-      category: this.props.category
+      category: this.props.category,
+      inputMode: false
     }
     this.handleAdd = this.handleAdd.bind(this)
     this.handleSubtract = this.handleSubtract.bind(this)
     this.handleChange = this.handleChange.bind(this)
+    this.inputMode = this.inputMode.bind(this)
   }
 
-  handleAdd () {
+  handleAdd() {
     this.setState({
       quantity: this.state.quantity + 1
     })
   }
 
-  handleSubtract () {
+  handleSubtract() {
     this.setState({
       quantity: this.state.quantity - 1
     })
   }
 
-  handleChange (e) {
+  inputMode() {
     this.setState({
-      name: e.target.value
+      inputMode: true
     })
   }
 
-  render () {
-    const { name, quantity, category } = this.state
+  handleChange(e) {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
+  render() {
+    const { name, quantity, category, inputMode } = this.state
     return (
       <React.Fragment>
         <Table.Cell>
-          <Input value={name} onChange={this.handleChange}/>
+          <Input name='name' value={name} onChange={this.handleChange} />
         </Table.Cell>
         <Table.Cell style={{ textAlign: 'center' }}>
           <span>
@@ -47,8 +55,8 @@ class ListItem extends React.Component {
           </span>
         </Table.Cell>
         <Table.Cell style={{ textAlign: 'center' }}>
-          <span>
-            <Label color='teal' horizontal>{category}</Label>
+          <span onClick={this.inputMode}>
+            {inputMode ? <Input name='category' value={category} onChange={this.handleChange} /> : <Label color='teal' horizontal>{category}</Label>}
           </span>
         </Table.Cell>
         <Table.Cell style={{ textAlign: 'center' }}>
