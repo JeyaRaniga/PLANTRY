@@ -1,6 +1,6 @@
 import React from 'react'
 import { Route } from 'react-router-dom'
-import { Segment, Container } from 'semantic-ui-react'
+import { Segment, Container, Button } from 'semantic-ui-react'
 
 import Login from './Login'
 import ShoppingList from './ShoppingList'

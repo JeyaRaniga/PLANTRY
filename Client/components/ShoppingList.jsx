@@ -36,7 +36,7 @@ class ShoppingList extends React.Component {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {this.state.items.map(item => <Table.Row key={item.id}><ListItem key={item.id} name={item.itemName} quantity={item.numberOfItems} category={item.categoryName} /> </Table.Row>)}
+            {this.state.items.map(item => <Table.Row key={item.id}><ListItem key={item.id} name={item.itemName} quantity={item.numberOfItems} category={item.categoryName} /></Table.Row>)}
           </Table.Body>
           <Table.Footer>
             <Table.Row>
