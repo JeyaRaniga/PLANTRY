@@ -1,3 +1,13 @@
-#app {
-  height: 100%;
+
+html,body{
+  height:100%;
+  margin:0 auto;
+  color:#fff;
 }
+
+
+#app {
+  background-image: url('/images/welcome.jpg');
+  height:100%; 
+}
+

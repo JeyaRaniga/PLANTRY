@@ -5,14 +5,15 @@ import { getShoppingList } from '../api'
 import ListItem from './ListItem'
 
 class ShoppingList extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       items: []
     }
+    this.handleAddItem = this.handleAddItem.bind(this)
   }
 
-  componentDidMount () {
+  componentDidMount() {
     getShoppingList()
       .then(response => {
         this.setState({
@@ -21,9 +22,26 @@ class ShoppingList extends React.Component {
       })
   }
 
-  render () {
+  handleAddItem() {
+    this.setState({
+      items: [
+        ...this.state.items, {
+          id: this.state.items[this.state.items.length - 1],
+          itemName: '',
+          categoryName: '',
+          numberOfItems: 0
+        }
+      ]
+    })
+  }
+
+  render() {
     return (
-      <Container>
+      <Container style={{
+        backgroundColor: 'white',
+        padding: '35px',
+        border: '1px'
+      }}>
         <Header as='h1'>Your Shopping List</Header>
         <Table celled>
           <Table.Header>
@@ -36,12 +54,13 @@ class ShoppingList extends React.Component {
             </Table.Row>
           </Table.Header>
           <Table.Body>
-            {this.state.items.map(item => <Table.Row key={item.id}><ListItem key={item.id} name={item.itemName} quantity={item.numberOfItems} category={item.categoryName} /></Table.Row>)}
+            {this.state.items.map(item => <Table.Row key={item.id}><ListItem key={item.id} name={item.itemName} quantity={item.numberOfItems} category={item.categoryName} id={item.id} /></Table.Row>)}
           </Table.Body>
           <Table.Footer>
             <Table.Row>
               <Table.HeaderCell colSpan='5'>
-                <Button>Add Items</Button>
+                <Button onClick={this.handleAddItem}>Add Items</Button>
+                <Button>Save Changes</Button>
               </Table.HeaderCell>
             </Table.Row>
           </Table.Footer>

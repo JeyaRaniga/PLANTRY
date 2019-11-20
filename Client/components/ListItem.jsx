@@ -11,6 +11,7 @@ class ListItem extends React.Component {
     }
     this.handleAdd = this.handleAdd.bind(this)
     this.handleSubtract = this.handleSubtract.bind(this)
+    this.handleChange = this.handleChange.bind(this)
   }
 
   handleAdd () {
@@ -25,12 +26,18 @@ class ListItem extends React.Component {
     })
   }
 
+  handleChange (e) {
+    this.setState({
+      name: e.target.value
+    })
+  }
+
   render () {
     const { name, quantity, category } = this.state
     return (
       <React.Fragment>
         <Table.Cell>
-          <Input value={name} />
+          <Input value={name} onChange={this.handleChange}/>
         </Table.Cell>
         <Table.Cell style={{ textAlign: 'center' }}>
           <span>
