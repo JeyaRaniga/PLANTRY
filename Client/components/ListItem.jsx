@@ -13,7 +13,8 @@ class ListItem extends React.Component {
     this.handleAdd = this.handleAdd.bind(this)
     this.handleSubtract = this.handleSubtract.bind(this)
     this.handleChange = this.handleChange.bind(this)
-    this.inputMode = this.inputMode.bind(this)
+    this.inputModeTrue = this.inputModeTrue.bind(this)
+    this.inputModeFalse = this.inputModeFalse.bind(this)
   }
 
   handleAdd() {
@@ -28,9 +29,15 @@ class ListItem extends React.Component {
     })
   }
 
-  inputMode() {
+  inputModeTrue() {
     this.setState({
       inputMode: true
+    })
+  }
+
+  inputModeFalse() {
+    this.setState({
+      inputMode: false
     })
   }
 
@@ -55,9 +62,16 @@ class ListItem extends React.Component {
           </span>
         </Table.Cell>
         <Table.Cell style={{ textAlign: 'center' }}>
-          <span onClick={this.inputMode}>
-            {inputMode ? <Input name='category' value={category} onChange={this.handleChange} /> : <Label color='teal' horizontal>{category}</Label>}
-          </span>
+
+          {inputMode
+            ? <span>
+              <Input name='category' value={category} onChange={this.handleChange} />
+              <Button onClick={this.inputModeFalse}>Save</Button>
+            </span>
+
+            : <span onClick={this.inputModeTrue}>
+              <Label color='teal' horizontal>{category}</Label>
+            </span>}
         </Table.Cell>
         <Table.Cell style={{ textAlign: 'center' }}>
           <span>
